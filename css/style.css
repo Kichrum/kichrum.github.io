@@ -1,0 +1,53 @@
+#header {
+	background: #fff;
+	border-bottom: 3px double #aba;
+	border-left: 1px solid #9a9;
+	border-right: 1px solid #565;
+	border-top: 1px solid #9a9;
+	font: normal 150% 'Times New Roman', Times, serif;
+	letter-spacing: 0.2em;
+	margin: 0;
+	padding: 15px 10px 15px 60px;
+}
+#header a {
+	color: #000;
+	text-decoration: none;
+	cursor: text;
+}
+#creditfooter {
+  display: none;
+}
+.feedburnerFeedBlock ul li p {
+  font-size: 80%;
+  margin: 0;
+}
+.feedburnerFeedBlock ul li span.headline {
+  font-size: 120%;
+}
+#jDash {
+  min-height: 500px;
+  /*background: white;*/
+  -moz-border-radius: 4px;
+  border: 1px solid #EEEEEE;
+  margin: 20px;
+  margin-top: 0;
+}
+div.jdash-head-title span.sub-title {
+  display: inline;
+  margin: 0;
+  font-size: 11px;
+  color: #888888;
+}
+a.reset-link {
+  float: right; 
+  color: #d7d7d7; 
+  margin: -15px 20px 0 0;
+  text-decoration: none;
+}
+a.reset-link:hover {
+  color: blue;
+  text-decoration: underline;
+}
+.clouds {
+  background:#CFECEC url(../images/bg_clouds.png) repeat-x 0 bottom;
+}
