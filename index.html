@@ -1,23 +1,3 @@
-<?php 
-  $minimized = "0-0-0-1-0-1";
-  header('Content-type: text/html; charse=utf-8');
-  if($_SERVER['QUERY_STRING'] == "reset")
-  {
-    setcookie("jdash-collapse-jDash", $minimized, time() + 3600*24*1000);
-    setcookie("jdash-detect-cookies", "", time());
-    setcookie("jdash-index-jDash", "", time());
-    header("location: ./");
-    exit();
-  }
-  if($_SERVER['QUERY_STRING'] == "stat")
-  {
-    setcookie("jdash-collapse-jDash", "1-1-0-1-0-1", time() + 3600*24*1000);
-    header("location: ./");
-    exit();
-  }
-  if(empty($_COOKIE["jdash-collapse-jDash"]))
-    setcookie("jdash-collapse-jDash", $minimized, time() + 3600*24*1000);
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
   <head>
@@ -30,20 +10,9 @@
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
     <script type="text/javascript" src="js/jdashboard.min.js"></script>
-    <script type="text/javascript">
-        
-        $(function() {
-            $("#jDash").jDashboard({ columns: 3 });
-        });
-        
-    </script>
-    
     <script type="text/javascript" src="js/jquery.bgscroll.js"></script>
-    <script type="text/javascript" language="javascript">
-      $( function() {
-      $('.clouds').bgscroll({scrollSpeed:100, direction:'h' });
-      });
-    </script>
+    <script type="text/javascript" src="js/jquery.tinycircleslider.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
 
     <!--[if lte IE 6]>
       <style type="text/css">
@@ -52,15 +21,10 @@
       #rotatescroll .thumb { background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="images/bg-thumb.png", sizingmethod='scale'); }
       </style>
     <![endif]-->
-    
-    <script type="text/javascript" src="js/jquery.tinycircleslider.min.js"></script>
+  </head>
+  
+  <body class="clouds">
     <script type="text/javascript">
-      $(document).ready(function(){
-        $('#rotatescroll').tinycircleslider({ interval: true, snaptodots: true, hidedots: false });
-      });
-    </script>
-    <script type="text/javascript">
-
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-20814005-1']);
       _gaq.push(['_trackPageview']);
@@ -70,16 +34,12 @@
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
-
     </script>
-  </head>
-  
-  <body class="clouds">
     <div id="jDash">
       <div class="jdash-item">
         <h1 class="jdash-head">Домашняя страничка</h1>
         <div class="jdash-body">
-          <h1 id="header"><a href="http://kichrum.sumy.ua/" title="Домашняя страница Пашко Сергея aka Kichrum"><span style="color: white; background: #006496;">Kichrum</span>'s Homepage</a><span id="c"><a href="#" onClick="setVisible();" style="text-decoration: none; color: #000000;">|</a></span> 
+          <h1 id="header"><a href="/" title="Домашняя страница Пашко Сергея aka Kichrum"><span style="color: white; background: #006496;">Kichrum</span>'s Homepage</a><span id="c"><a href="#" onClick="setVisible();" style="text-decoration: none; color: #000000;">|</a></span> 
           <script type="text/javascript">setInterval(function() {var c = document.getElementById("c");
           c.style.visibility = c.style.visibility=="hidden"? "visible" : "hidden";
           }, 500);</script></h1>
@@ -87,8 +47,8 @@
           <p>Ты можешь посетить его, то есть мой, <a href="http://kichrum.org.ua" title="Kichrum's Blog">блог</a> и 
           <a href="http://twitter.com/Kichrum" title="Pashko Sergey on Twitter">микро-блог</a>, а также любой другой 
           проект, если какой-то еще знаешь.</p>
-          <p>На старой версии сайта есть удобная <a href="/old/">пополнялка за WebMoney</a>. И тут что-то будет, возможно... Если есть идеи - <a href="http://kichrum.org.ua/about/contact" title="Обратная связь">пиши</a>.</p>
-          <p align="center">&copy; <a href="http://kichrum.org.ua/about/contact" title="Обратная связь">Пашко Сергей</a>, 2010&mdash;<?=date("Y"); ?></p>
+          <p>На старой версии сайта есть удобная <a href="./old/">пополнялка за WebMoney</a>. И тут что-то будет, возможно... Если есть идеи - <a href="http://kichrum.org.ua/about/contact" title="Обратная связь">пиши</a>.</p>
+          <p align="center">&copy; <a href="http://kichrum.org.ua/about/contact" title="Обратная связь">Пашко Сергей</a>, 2010&mdash;<span id='year'></span></p>
         </div>
       </div>
       
@@ -100,10 +60,10 @@
               <ul class="overview">
                 <li><a href="http://kichrum.org.ua" title="Kichrum's Blog">[b]</a><p>Мой блог</p></li>
                 <li><a href="http://twitter.com/Kichrum" title="Kichrum's Tweets">[t]</a><p>Мой микро-блог</p></li>
-                <li><a href="http://kichrum.vkontakte.ru" title="Я В Контакте">[vk]</a><p>Моя страничка В Контакте</p></li>
+                <li><a href="http://vk.com/kichrum" title="Я В Контакте">[vk]</a><p>Моя страничка В Контакте</p></li>
                 <li><a href="http://www.facebook.com/Kichrum" title="Я на FaceBook">[f]</a><p>Моя страничка в Facebook</p></li>
-                <li><a href="http://kichrum.livejournal.com/" title="Я в Живом Журнале">[lj]</a><p>Я в Живом Журнале</p></li>
-                <li><a href="http://kichrum.mp" title="Я в Chi.mp">[mp]</a><p>Я в Chi.mp</p></li>
+                <li><a href="http://ua.linkedin.com/in/kichrum/en" title="Я на LinkedIn">[in]</a><p>Я на LinkedIn</p></li>
+                <li><a href="http://github.com/Kichrum" title="Я на Github">[gh]</a><p>Я на Github</p></li>
                 <li><a href="http://profiles.google.com/Kichrum" title="Я в Google">[g]</a><p>Мой профиль Google</p></li>
                 <li><a href="http://friendfeed.com/kichrum" title="Моя лента активности в сети FriendFeed">[ff]</a><p>Моя лента в FriendFeed</p></li>
               </ul>
@@ -150,6 +110,6 @@
       </div>
       
     </div>
-    <a href="?reset" class="reset-link" title="Вдруг настроил такое, что не знаешь, как всё восстановить. А они ведь в кукисах хранятся, да-да-да...">[сбросить расположение окошек]</a>
+    <a href="#reset" onclick="reset()" class="reset-link" title="Вдруг настроил такое, что не знаешь, как всё восстановить. А они ведь в кукисах хранятся, да-да-да...">[сбросить расположение окошек]</a>
   </body>
 </html>
