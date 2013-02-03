@@ -1,0 +1,79 @@
+#creditfooter {
+    display: none;
+}
+#kou {
+    left: 3px;
+	top: 50px;
+    width: 30%;
+    position: absolute;
+    border: 1px dotted gray;
+    padding: 3px;
+}
+#twitter {
+    right: 3px;
+    top: 100px;
+    width: 30%;
+    position: absolute;
+    border: 1px dotted gray;
+    padding: 3px;
+}
+#content {
+    left: 32%;
+    top: 10px;
+    width: 36%;
+    position: absolute;
+    border: 1px dotted gray;
+    padding: 3px;
+}
+#content a {
+    text-decoration: none;
+    color: blue;
+}
+#kichrum6poo5dammhvk23ce855tc2qkh8 p.date {
+    font-size: 80%;
+}
+#kichrum6poo5dammhvk23ce855tc2qkh8 a {
+    text-decoration: none;
+    color: #000000;
+}
+#kichrum6poo5dammhvk23ce855tc2qkh8 a:hover {
+	border-bottom: 1px solid #000000;
+}
+#kichrum6poo5dammhvk23ce855tc2qkh8 li {
+    list-style: none;
+}
+#kichrum6poo5dammhvk23ce855tc2qkh8 ul {
+    padding: 0;
+}
+a.blogtitle {
+    padding-left: 20px;
+    text-decoration: none;
+    font-size: 120%
+}
+a:hover.blogtitle {
+    border-bottom: 1px solid #000000;
+}
+#header {
+	background: #fff;
+	border-bottom: 3px double #aba;
+	border-left: 1px solid #9a9;
+	border-right: 1px solid #565;
+	border-top: 1px solid #9a9;
+	font: normal 150% 'Times New Roman', Times, serif;
+	letter-spacing: 0.2em;
+	margin: 0;
+	padding: 15px 10px 15px 60px;
+}
+#header a {
+	color: #000;
+	text-decoration: none;
+	cursor: text;
+}
+#links {
+    text-align: center;
+    padding-top: 25%;
+}
+#links a {
+    text-decoration: none;
+    color: blue;
+}
